@@ -5,7 +5,15 @@ import { Component } from '@angular/core';
   template: `
     <app-header></app-header>
     
-    <router-outlet></router-outlet>
+    <section class="hero is-fullheight is-warning is-bold">
+    <div class="hero-body">
+    <div class="container">
+
+      <router-outlet></router-outlet>
+   
+    </div>
+    </div>
+    </section>
 
     <app-footer></app-footer>
   `,

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Gif } from '@app/models/gif.model';
 
 @Injectable()
 export class GifService {
@@ -10,8 +11,8 @@ export class GifService {
 
   // CREATE =====================================================
   // get a random gif
-  getRandom(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/random`);
+  getRandom(): Observable<Gif> {
+    return this.http.get<Gif>(`${this.apiUrl}/random`);
   }
 
   // store a gif
@@ -21,12 +22,12 @@ export class GifService {
 
   // BATTLE =====================================================
   // get a battle (2 gifs)
-  getBattle(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/versus`); 
+  getBattle(): Observable<Gif[]> {
+    return this.http.get<Gif[]>(`${this.apiUrl}/versus`); 
   }
 
   // vote on a gif
-  vote(id) {
+  vote(id): Observable<any> {
     return this.http.post(`${this.apiUrl}/vote`, { id });
   }
   

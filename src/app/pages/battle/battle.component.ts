@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GifService } from '@app/core/services/gif.service';
+import { Gif } from '@app/models/gif.model';
 
 @Component({
   selector: 'app-battle',
@@ -34,7 +35,7 @@ import { GifService } from '@app/core/services/gif.service';
   `]
 })
 export class BattleComponent implements OnInit {
-  battleGifs: Array<any>;
+  battleGifs: Gif[];
 
   constructor(private gifService: GifService) {}
 

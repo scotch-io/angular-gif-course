@@ -9,10 +9,7 @@ import { GifService } from '@app/core/services/gif.service';
     <div class="columns" *ngIf="battleGifs">
 
       <div class="column is-half" *ngFor="let gif of battleGifs">
-        <div class="gif-container">
-          <img [src]="gif.url">
-          <div class="caption">{{ gif.caption }}</div>
-        </div>
+        <app-gif [url]="gif.url" [caption]="gif.caption"></app-gif>
 
         <a 
           class="button is-info" 
@@ -24,25 +21,6 @@ import { GifService } from '@app/core/services/gif.service';
     </div>
   `,
   styles: [`
-    .gif-container {
-      position: relative;
-    }
-
-    .caption   {
-      display: block;
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 30px;
-      text-align: center;
-      color: #FFF;
-      font-size: 30px;
-      text-transform: uppercase;
-      line-height: 1;
-      word-break: break-all;
-      text-shadow: 1px 1px 3px #000;
-    }
-
     img  {
       width: 100%;
       height: 300px;

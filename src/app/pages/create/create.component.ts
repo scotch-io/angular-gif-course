@@ -27,6 +27,11 @@ import { GifService } from '@app/core/services/gif.service';
     </div>
   `,
   styles: [`
+    .box     {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+    
     .gif-container {
       position: relative;
     }

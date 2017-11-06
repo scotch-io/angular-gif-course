@@ -33,8 +33,8 @@ export class GifService {
   
   // LEADERBOARD =====================================================
   // get the leaderboard
-  getLeaderboard() {
-
+  getLeaderboard(): Observable<Gif[]> {
+    return this.http.get<Gif[]>(`${this.apiUrl}/leaderboard`);
   }
 
 }

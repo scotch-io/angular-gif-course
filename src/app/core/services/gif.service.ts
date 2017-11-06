@@ -21,13 +21,13 @@ export class GifService {
 
   // BATTLE =====================================================
   // get a battle (2 gifs)
-  getBattle() {
-
+  getBattle(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/versus`); 
   }
 
   // vote on a gif
   vote(id) {
-
+    return this.http.post(`${this.apiUrl}/vote`, { id });
   }
   
   // LEADERBOARD =====================================================

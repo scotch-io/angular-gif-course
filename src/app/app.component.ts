@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
     <div class="hero-body">
     <div class="container">
 
+      <flash-messages></flash-messages>
       <router-outlet></router-outlet>
    
     </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GifService } from '@app/core/services/gif.service';
 import { Gif } from '@app/models/gif.model';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-battle',
@@ -37,7 +38,10 @@ import { Gif } from '@app/models/gif.model';
 export class BattleComponent implements OnInit {
   battleGifs: Gif[];
 
-  constructor(private gifService: GifService) {}
+  constructor(
+    private gifService: GifService,
+    private flashService: FlashMessagesService
+  ) {}
 
   ngOnInit() {
     this.getNewBattle();
@@ -54,7 +58,11 @@ export class BattleComponent implements OnInit {
         // load a new battle
         this.getNewBattle();
       
-        // TODO show notification of success
+        // show notification of success
+        this.flashService.show('Voted on gif!', {
+          cssClass: 'notification is-success',
+          timeout: 5000
+        });
       });
   }
 
